@@ -1,4 +1,4 @@
-package com.mycompany.design.patterns;
+package designPatterns;
 
 public class mainDesign {
     
@@ -11,7 +11,7 @@ public class mainDesign {
         Pizza fugazzeta = pizzaFactory.crearPizzaGrande();
         
         System.out.println(especial);
-        System.out.println(tropical);
+        //System.out.println(tropical);
         System.out.println(fugazzeta);
     }
 }

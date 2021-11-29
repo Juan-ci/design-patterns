@@ -1,4 +1,4 @@
-package com.mycompany.design.patterns;
+package designPatterns;
 
 public class PizzaFactory {
     
