@@ -6,12 +6,11 @@ public class mainDesign {
         
         PizzaFactory pizzaFactory = new PizzaFactory();
         
-        Pizza especial = pizzaFactory.crearPizzaChica();
-        Pizza tropical = pizzaFactory.crearPizzaMediana();
-        Pizza fugazzeta = pizzaFactory.crearPizzaGrande();
+        Pizza especial = pizzaFactory.crearPizza("Chica", "Especial");
+        Pizza tropical = pizzaFactory.crearPizza("Grande ", "Tropical");
         
         System.out.println(especial);
-        //System.out.println(tropical);
-        System.out.println(fugazzeta);
+        System.out.println(tropical);
+        
     }
 }

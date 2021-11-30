@@ -1,16 +1,14 @@
 package designPatterns;
 
-public class PizzaFactory {
+public class PizzaFactory implements IPizzeria {
     
-    public Pizza crearPizzaChica() {
-        return new Pizza(6);
+    public Pizza crearPizza(String tamaño, String tipo) {
+        
+        if(tamaño.equals("Chica")) {
+            return new Pizza( 6, tipo);
+        } else {
+            return new Pizza(8, tipo);
+        }
     }
     
-    public Pizza crearPizzaMediana() {
-        return new Pizza(8);
-    }
-    
-    public Pizza crearPizzaGrande() {
-        return new Pizza(12);
-    }
 }
