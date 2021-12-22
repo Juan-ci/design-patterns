@@ -4,12 +4,23 @@ public class mainSingleton {
     
     public static void main(String[] args) {
         
-        ConexionDB conexion1 = ConexionDB.getConexion();
-        ConexionDB conexion2 = ConexionDB.getConexion();
+        Thread t1 = new Thread(new Runnable(){
+            public void run() {
+                ConexionDB conexion = ConexionDB.getConexion();
+                
+                System.out.println(conexion.hashCode());
+            }
+        });
         
-        System.out.println(conexion1.hashCode());
-        //Imprimimos en consola el hashCode y vemos que son los mismos.
-        System.out.println(conexion2.hashCode());
+        Thread t2 = new Thread(new Runnable(){
+            public void run() {
+                ConexionDB conexion = ConexionDB.getConexion();
+                
+                System.out.println(conexion.hashCode());
+            }
+        });
         
+        t1.start();
+        t2.start();
     }
 }

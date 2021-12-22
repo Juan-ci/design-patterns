@@ -8,7 +8,7 @@ public class ConexionDB {
     
     }
     
-    public static ConexionDB getConexion() {
+    public synchronized static ConexionDB getConexion() {
         
         if(conexion == null) {
             conexion = new ConexionDB();
