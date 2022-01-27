@@ -4,8 +4,8 @@ public class MainProxy {
     
     public static void main(String[] args) {
         
-        Usuario usuario = new Usuario(3);
-        IServicio proxy = new ProxyServicio(new Servicio(), usuario);
+        Usuario usuario = new Usuario(5);
+        IServicio proxy = new ProxyServicio(usuario);
         
         proxy.leer();
         proxy.escribir();

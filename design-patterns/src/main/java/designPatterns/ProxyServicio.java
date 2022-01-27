@@ -2,23 +2,22 @@ package designPatterns;
 
 public class ProxyServicio implements IServicio {
 
-    private IServicio servicio;
+    private IServicio servicio; //Simulamos que el servicio es costoso de crear, lo limitamos a crear sólo si es necesario
     private Usuario usuario;
     
-    public ProxyServicio(IServicio servicio, Usuario usuario) {
-        this.servicio = servicio;
+    public ProxyServicio(Usuario usuario) {
         this.usuario = usuario;
     }
     
     @Override
     public void leer() {
-        this.servicio.leer();
+        this.obtenerServicio().leer();
     }
 
     @Override
     public void escribir() {
         if(usuario.getNivelUsuario() >= 5) {
-            this.servicio.escribir();
+            this.obtenerServicio().escribir();
         } else {
             throw new UnsupportedOperationException("Error de seguridad");
         }
@@ -27,7 +26,7 @@ public class ProxyServicio implements IServicio {
     @Override
     public void actualizar() {
         if(usuario.getNivelUsuario() >= 5) {
-            this.servicio.actualizar();
+            this.obtenerServicio().actualizar();
         } else {
             throw new UnsupportedOperationException("Error de seguridad");
         }
@@ -36,10 +35,17 @@ public class ProxyServicio implements IServicio {
     @Override
     public void eliminar() {
         if(usuario.getNivelUsuario() >= 5) {
-            this.servicio.eliminar();
+            this.obtenerServicio().eliminar();
         } else {
             throw new UnsupportedOperationException("Error de seguridad");
         }
     }
     
+    private IServicio obtenerServicio() {
+        if(this.servicio == null) {
+            this.servicio = new Servicio();
+        }
+        
+        return this.servicio;
+    }
 }
