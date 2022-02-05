@@ -13,7 +13,7 @@ public class Auto implements IEstadoAuto {
         this.autoManejando = new AutoManejar(this);
         this.autoApagado = new AutoApagar(this);
         
-        this.estadoActual = null;
+        this.estadoActual = this.autoApagado;
     }
 
     public IEstadoAuto getAutoEncendido() {

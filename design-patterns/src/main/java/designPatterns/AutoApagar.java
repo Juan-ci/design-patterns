@@ -18,6 +18,6 @@ public class AutoApagar implements IEstadoAuto {
     }
     
     public void apagar() {
-        System.out.println("El auto está en movimiento.");
+        System.out.println("El auto está apagado.");
     }
 }
